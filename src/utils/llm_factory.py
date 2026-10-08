@@ -39,7 +39,11 @@ def get_llm(provider: str = None, temperature: float = 0.0):
         kwargs = {
             "model": config.OPENAI_MODEL,
             "api_key": config.OPENAI_API_KEY,
-            "temperature": temperature,
+            # vlearn: nhóm GPT-5.6 chỉ chấp nhận temperature mặc định.
+            "temperature": (
+                None if config.OPENAI_MODEL.removeprefix("openai/").startswith("gpt-5.6")
+                else temperature
+            ),
         }
         if config.OPENAI_BASE_URL:
             kwargs["base_url"] = config.OPENAI_BASE_URL
