@@ -1,0 +1,9 @@
+Kết quả đánh giá 50 câu hỏi với openai/gpt-4o-mini qua vlearn Gateway:
+
+- V1: faithfulness 0.9840, answer_relevancy 0.9140.
+- V2: faithfulness 0.7958, answer_relevancy 0.8851.
+- Cả hai: context_recall 1.0000 và context_precision 0.9450 (bằng nhau ở 4 chữ số thập phân).
+
+V1 cao hơn V2 ở faithfulness và answer_relevancy. Một cách giải thích có thể là yêu cầu trả lời ngắn của V1 hạn chế các ý ngoài tài liệu truy xuất, còn V2 yêu cầu giải thích cơ chế và hệ quả nên có thêm cơ hội đưa ra ý chưa được context hỗ trợ. Đây là giả thuyết dựa trên điểm trung bình; muốn kết luận nguyên nhân cần xem các câu bị chấm thấp riêng lẻ. V1 đạt ngưỡng faithfulness 0.8 của rubric, còn V2 thấp hơn ngưỡng một chút.
+
+03_ragas_run_log.txt ghi cả các lần thử gặp lỗi và lượt chấm lại thành công; dùng bảng FINAL VERIFIED COMPARISON ở cuối log cùng 03_ragas_report.json làm kết quả cuối.
